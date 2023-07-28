@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPMS booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/teacher.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="stylesheet" href="./css/teacher.css">
+</head>
+
+<body class="bg-gray-200 flex justify-center items-center h-screen w-screen">
+    <div class="container overflow-hidden rounded-2xl">
+        <div class="flex flex-row bg-white items-center">
+                <div class=" text-white font-bold">
+                    <img style="width:150px; padding:10px" src="./images/thap2.png" alt="">
+                </div>
+            <div class="flex flex-row pl-5 items-center">
+                <div class="h-9 w-9">
+                    <img src="./images/userIcon.png" alt="">
+                </div>
+                <div class="flex flex-col pl-5">
+                    <span class="font-semibold text-sm app-color-black"><%=name%></span>
+                    <span class="font-semibold text-xs app-color-gray-1"><%=department%></span>
+                </div>
+
+                <div class="w-px bg-gray-100 h-10 ml-5"></div>
+            </div>
+            <div class="pl-10 flex flex-row  items-center mr-auto">
+                <div class="h-9 w-9 app-bg-blue-2 flex justify-center items-center rounded-xl">
+                    <svg class="w-6 h-6 app-color-blue-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+            <input type="date" name="date" datetimepicker
+                class="ml-5 focus:shadow-soft-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none" />
+                <div class="w-px bg-gray-100 h-10 ml-5"></div>
+
+            </div>
+
+         
+
+        </div>
+        <!-- width: 30% -->
+        <div class="flex flex-col app-bg-white-1 px-12 pb-10" class="col">
+            <br />
+            <div class="flex flex-row w-full">
+                <div class="flex flex-col pl-5 py-3 mr-3 rounded-tl-2xl rounded-tr-2xl bg-white active w-1/4 h-[300px] ">
+                    <div class="text-3xl app-color-blue-1 font-bold w-1/2  text-center ml-12">Filters</div>
+                    <div class="flex justify-center ">
+                        <div>
+                            <br/>
+                            <form action="/teachers" class="">
+                                <input type="checkbox" id="AC" name="AC" value="AC" >
+                                <label for="AC" class="font-semibold py-25 -py-25"> AC</label><br>
+                            </form>
+                            
+                            <form action="/teachers" class="py-3">
+                                <input type="checkbox" id="NON-AC" name="NON-AC" value="NON-AC">
+                                <label for="NON-AC" class="font-semibold py-25 -py-25"> NON-AC</label><br>
+                            </form>
+
+
+                            <form action="/teachers">
+                                <label for="class1" class="font-semibold ">Time:</label>
+                                <input type="time" id="class1" name="time" class="h-4 w-20 border border-gray-300 rounded-sm bg-white ">
+                               
+                              </form>
+
+
+
+                              <form action="/teacher">
+                                <p class="font-semibold py-2">Select the duration of class:</p>
+                                <input type="radio" id="fifty" name="time" value="fifty">
+                                <label for="html" class="gap-2"> 50 minutes </label><br>
+                                <input type="radio" id="twenty" name="time" value="twenty">
+                                <label for="css" class="gap-2">140 minutes</label><br>
+                              </form>
+
+                              <form action="/teacher">
+                                <p class="font-semibold py-2">Capacity of the class:</p>
+                                <input type="radio" id="hundred" name="time" value="hundred">
+                                <label for="hundred" class="gap-2"> 100 </label><br>
+                                <input type="radio" id="threehundred" name="time" value="three">
+                                <label for="three" class="three">300</label><br>
+                              </form>
+                           
+                           
+                            <br>
+                            
+                           
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="su">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                
+            </div>
+            <!-- width: 100- -->
+            <form method="post" action="/confirmation" class="form">
+            <div class=" hidden flex-row bg-white p-10 relative" id="clickk">
+                <div class="absolute app-bg-yellow-3 text-xs font-semibold px-3 py-0.5 rounded-br-md rounded-tl-md text-white"
+                    style="top: 76px;">Best Choice</div>
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th class="text-left text-xs app-color-black pb-5 -space-x-8">CLASSROOM</th>
+                           
+                            <th class="text-left text-xs app-color-black pb-5 px-3">TIMING</th>
+                            <th class="text-left text-xs app-color-black pb-5 px-3">DURATION</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class=" app-border-1" id="app-bord-1">
+                            <td>
+                                <svg class="w-6 h-6 app-color-blue-3 ml-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 8h16M4 16h16"></path>
+                                </svg>
+                            </td>
+                            <td>
+                                <div
+                                    class="flex justify-center items-center rounded-md w-8 h-8 app-bg-yellow-2 app-color-yellow-1 text-lg font-semibold">
+                                    1</div>
+                            </td>
+                            <td>
+                                <div class="flex flex-row py-3">
+                                    
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold text-sm app-color-black">LT 101</span>
+                                        <span class="font-semibold text-xs app-color-gray-1">CAP-100</span>
+                                    </div>
+                                </div>
+                            </td>
+                           
+                            <td>
+                                <span class="font-semibold text-sm app-color-gray-1">03:20PM</span>
+                            </td>
+                            <td>
+                                <div
+                                    class="app-bg-red-2 h-8 w-28 font-semibold text-sm flex justify-center items-center app-color-red-1 rounded-md">
+                                    50 Mins
+                                </div>
+                            </td>
+                            <td>
+                                <button
+                                    class="flex items-center justify-center app-button-shadow w-32 py-2 rounded-3xl">
+                                    <svg class="w-6 h-6 app-color-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span class="ml-3 font-semibold text-md app-color-gray-1">Book Now</span>
+                                </button>
+                            </td>
+                            <td>
+                                <svg class="w-6 h-6 app-color-blue-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                    </path>
+                                </svg>
+
+                            </td>
+                        </tr>
+                        <tr class=" app-border-1" id="app-bord-2">
+                            <td class="w-6 h-6">
+                                <svg class="ml-3 w-6 h-6 app-color-blue-3 mr-6" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 8h16M4 16h16"></path>
+                                </svg>
+                            </td>
+                            <td>
+                                <div
+                                    class="mr-4 w-8 h-8 rounded-md flex items-center justify-center app-bg-blue-2 app-color-blue-1 text-lg font-semibold">
+                                    2</div>
+                            </td>
+                            <td>
+                                <div class="flex flex-row items-center py-3">
+                               
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold text-sm app-color-black">LP 107</span>
+                                        <span class="font-semibold text-xs app-color-gray-1">CAP-100</span>
+                                    </div>
+                                </div>
+                            </td>
+                           
+                            <td>
+                                <span class="font-semibold text-sm app-color-gray-1">03:20 PM</span>
+                            </td>
+                            <td>
+                                <div
+                                    class="h-8 w-28 font-semibold text-sm app-bg-red-2 flex items-center justify-center app-color-red-1 rounded-md">
+                                    50 Mins
+                                </div>
+                            </td>
+                            <td>
+                                <button
+                                    class="flex items-center justify-center rounded-3xl shadow-md w-32 py-2 app-button-shadow">
+                                    <svg class="w-6 h-6 app-color-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z">
+                                        </path>
+                                    </svg>
+                                    <span class="ml-3 font-semibold text-md app-color-gray-1">Book Now</span>
+                                </button>
+                            </td>
+                            <td>
+                                <svg class="w-6 h-6 app-color-blue-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                    </path>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr class=" hidden app-border-1" id="app-bord-3">
+                            <td class="w-6 h-6">
+                                <svg class="ml-3 w-6 h-6 app-color-blue-3 mr-6" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 8h16M4 16h16"></path>
+                                </svg>
+                            </td>
+                            <td>
+                                <div
+                                    class="mr-4 w-8 h-8 rounded-md flex items-center justify-center app-bg-yellow-2 app-color-yellow-1 text-lg font-semibold">
+                                    3</div>
+                            </td>
+                            <td>
+                                <div class="flex flex-row items-center py-3">
+                                
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold text-sm app-color-black">TAN 103</span>
+                                        <span class="font-semibold text-xs app-color-gray-1">CAP-300</span>
+                                    </div>
+                                </div>
+                            </td>
+                           
+                            <td>
+                                <span class="font-semibold text-sm app-color-gray-1">04:20PM</span>
+                            </td>
+                            <td>
+                                <div
+                                    class="h-8 w-28 font-semibold text-sm app-bg-blue-2 flex items-center justify-center app-color-blue-1 rounded-md">
+                                  1 HR 40 MINS
+                                </div>
+                            </td>
+                            <td>
+                                <button
+                                    class="flex items-center justify-center rounded-3xl shadow-md w-32 py-2 app-button-shadow">
+                                    <svg class="w-6 h-6 app-color-blue-1" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> <span class="ml-3 font-semibold text-md app-color-gray-1">Book Now</span>
+                                </button>
+                            </td>
+                            <td>
+                                <svg class="w-6 h-6 app-color-blue-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                    </path>
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr class="hidden app-border-1" id="app-bord-4">
+                            <td class="w-6 h-6">
+                                <svg class="ml-3 w-6 h-6 app-color-blue-3 mr-6" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 8h16M4 16h16"></path>
+                                </svg>
+                            </td>
+                            <td>
+                                <div
+                                    class="mr-4 w-8 h-8 rounded-md flex items-center justify-center app-bg-blue-2 app-color-blue-1 text-lg font-semibold">
+                                    4</div>
+                            </td>
+                            <td>
+                                <div class="flex flex-row items-center py-3">
+                                   
+                                    <div class="flex flex-col">
+                                        <span class="font-semibold text-sm app-color-black">LT-102</span>
+                                        <span class="font-semibold text-xs app-color-gray-1">CAP-300</span>
+                                    </div>
+                                </div>
+                            </td>
+                         
+                            <td>
+                                <span class="font-semibold text-sm app-color-gray-1">04:20PM</span>
+                            </td>
+                            <td>
+                                <div
+                                    class="h-8 w-28 font-semibold text-sm app-bg-blue-2 flex items-center justify-center app-color-blue-1 rounded-md">
+                                 1 HR 40 MINS
+                                </div>
+                            </td>
+                            <td>
+                                <button
+                                    class="flex items-center justify-center rounded-3xl shadow-md w-32 py-2 app-button-shadow">
+                                    <svg class="w-6 h-6 app-color-blue-1" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="ml-3 font-semibold text-md app-color-gray-1">Book Now</span>
+                                </button>
+                            </td>
+                            <td>
+                                <svg class="w-6 h-6 app-color-blue-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                    </path>
+                                </svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./js/teacher.js"></script>
+</body>
+
+</html>
